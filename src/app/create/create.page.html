@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Créer une TODO List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <form  #form="ngForm">
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="5">
+          <div>
+            <h3 class="ion-text-center">Créer une TODO List</h3>
+          </div>
+          <div>
+            <ion-item>
+              <ion-input name="titre" type="text" placeholder="titre" [(ngModel)]="titre" required ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="description" type="email" placeholder="description" [(ngModel)]="description" required ></ion-input>
+            </ion-item>
+            <ion-item>
+              Due Date : <br>
+              <ion-input name="creationdate" type="Date"  [(ngModel)]="duedate" required ></ion-input>
+            </ion-item>
+          </div>
+          <div class=" ion-justify-content-center ion-align-items-between">
+            <ion-button  size="medium" color="success" type="submit" [disabled]="form.invalid" expand="block" (click)='clickme()'>Créer</ion-button>
+            <ion-button  size="medium" type="reset" color="danger" expand="block">Annuler</ion-button>
+            <ion-button  size="medium"  expand="block" color="secondary" routerLink="/home">Retour</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

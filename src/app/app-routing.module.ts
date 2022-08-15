@@ -8,14 +8,24 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'create',
+    loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'update',
+    loadChildren: () => import('./update/update.module').then( m => m.UpdatePageModule)
+  },
+
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes,
+      { preloadingStrategy: PreloadAllModules },
+    )
   ],
   exports: [RouterModule]
 })
